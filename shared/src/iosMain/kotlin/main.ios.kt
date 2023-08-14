@@ -1,5 +1,14 @@
-import androidx.compose.ui.window.ComposeUIViewController
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.toComposeImageBitmap
+import di.initializeKoin
+import moe.tlaster.precompose.PreComposeApplication
 
 actual fun getPlatformName(): String = "iOS"
 
-fun MainViewController() = ComposeUIViewController { App() }
+actual fun ByteArray.toImageBitmap(): ImageBitmap {
+    return org.jetbrains.skia.Image.makeFromEncoded(this).toComposeImageBitmap()
+}
+
+fun MainViewController() = PreComposeApplication("IOS TITLE"){ App() }
+
+fun InitializeKoin() = initializeKoin {  }

@@ -4,7 +4,9 @@ import shared
 
 struct ComposeView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
-        Main_iosKt.MainViewController()
+       let mainViewController = Main_iosKt.MainViewController()
+        Main_iosKt.InitializeKoin()
+        return mainViewController
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}

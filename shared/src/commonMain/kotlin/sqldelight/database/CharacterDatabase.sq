@@ -1,0 +1,80 @@
+CREATE TABLE IF NOT EXISTS characters (
+actor TEXT NOT NULL,
+alive INTEGER NOT NULL, -- 0 for false, 1 for true
+alternateNames TEXT NOT NULL,
+ancestry TEXT NOT NULL,
+dateOfBirth TEXT, -- Nullable column
+eyeColour TEXT NOT NULL,
+gender TEXT NOT NULL,
+hairColour TEXT NOT NULL,
+hogwartsStaff INTEGER NOT NULL, -- 0 for false, 1 for true
+hogwartsStudent INTEGER NOT NULL, -- 0 for false, 1 for true
+house TEXT NOT NULL,
+id TEXT PRIMARY KEY,
+image TEXT NOT NULL,
+name TEXT NOT NULL,
+patronus TEXT NOT NULL,
+species TEXT NOT NULL,
+wand TEXT,--
+wizard INTEGER NOT NULL, -- 0 for false, 1 for true
+yearOfBirth INTEGER -- Nullable column
+);
+CREATE TABLE IF NOT EXISTS wand(
+core TEXT NOT NULL,
+length INTEGER,
+wood TEXT NOT NULL
+);
+getAllCharacters: SELECT * FROM characters;
+getWandDetails: SELECT * FROM wand;
+insertWandDetails: INSERT OR REPLACE INTO wand(
+core,
+length,
+wood
+)
+VALUES(
+?,
+?,
+?
+);
+insertCharacter: INSERT OR REPLACE INTO characters(
+actor,
+alive,
+alternateNames,
+ancestry,
+dateOfBirth,
+eyeColour,
+gender,
+hairColour,
+hogwartsStaff,
+hogwartsStudent,
+house,
+id,
+image,
+name,
+patronus,
+species,
+wand,
+wizard,
+yearOfBirth
+)
+VALUES (
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?,
+?
+);
